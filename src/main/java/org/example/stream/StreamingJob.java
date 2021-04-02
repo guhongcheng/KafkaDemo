@@ -50,7 +50,7 @@ public class StreamingJob {
 					out.collect(new WordCount(word,1l));
 				}
 			}
-		}).keyBy(0).sum(1);
+		}).keyBy("word").sum("count");
 		windowcounts.print().setParallelism(1);
 
 		// execute program
